@@ -1,0 +1,22 @@
+{
+  "name": "my-store",
+  "version": "1.0.0",
+  "description": "ecommerce of products using express.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kateincoding/ecommerce-backend.git"
+  },
+  "keywords": [
+    "backend"
+  ],
+  "author": "Katherine Soto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kateincoding/ecommerce-backend/issues"
+  },
+  "homepage": "https://github.com/kateincoding/ecommerce-backend#readme"
+}
