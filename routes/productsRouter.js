@@ -10,41 +10,33 @@ router.get('/', async (req, res) => {
 });
 
 // los endpoint especifico van antes del dinamico
-router.get('/filter', (req, res) => {
+router.get('/filter', async (req, res) => {
   res.send('filtering');
-})
+});
 
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
   const { id } = req.params;
-  const product = service.findOne(id);
+  const product = await service.findOne(id);
+  res.json(product);
+});
+
+router.post('/', async (req, res) => {
+  const body = req.body;
+  const newProduct = await service.create(body);
+  res.status(201).json(newProduct);
+});
+
+router.patch('/:id', async (req, res) => {
+  const { id } = req.params;
+  const body = req.body;
+  const product = await service.update(id, body);
   res.json(product);
 })
 
-router.post('/', (req, res) => {
-  const body = req.body;
-  res.status(201).json({
-    message: 'created',
-    data: body
-  });
-})
-
-router.patch('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
   const { id } = req.params;
-  const body = req.body;
-  res.json({
-    message: 'updated',
-    data: body,
-    id,
-  });
-})
-
-router.delete('/:id', (req, res) => {
-  const { id } = req.params;
-  const body = req.body;
-  res.json({
-    message: 'deleted',
-    id,
-  });
+  const rta = await service.delete(id);
+  res.json(rta);
 })
 
 module.exports = router;
