@@ -1,6 +1,8 @@
 const express = require('express');
 const routerApi = require('./routes');
 
+const { logErrors, errorHandler } = require('./middlewares/error.handler')
+
 const app = express();
 const port = 3000;
 
@@ -24,6 +26,10 @@ app.get('/categories/:categoryId/products/:productId', (req, res) => {
 })
 
 routerApi(app);
+
+/* using middleware */
+app.use(logErrors);
+app.use(errorHandler);
 
 app.listen(port, () => {
   console.log("I am listening on the port" + port);
