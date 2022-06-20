@@ -10,3 +10,8 @@ prod dep:
 ```
 npm i express
 ```
+
+### libraries
+
+joi doc
+[https://joi.dev/api/?v=17.6.0](https://joi.dev/api/?v=17.6.0)
